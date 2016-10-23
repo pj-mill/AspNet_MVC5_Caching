@@ -18,7 +18,7 @@ Developed with Visual Studio 2015 Community
 
 ###Features
 
-The OutputCacheExample project focuses on the 'OutputCache' attribute used to control caching on on controller actions.
+The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used to control caching on controller actions.
 
 |Feature|
 |-------|
