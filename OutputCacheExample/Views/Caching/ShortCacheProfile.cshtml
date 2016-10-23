@@ -1,0 +1,11 @@
+﻿@model OutputCacheExample.Models.Person
+@{
+    ViewBag.Title = "ShortCacheProfile View";
+}
+
+<h2>Short Cache Profile</h2>
+
+@Html.Partial("PersonPartial", Model)
+<p>Refresh the browser a number of times, you will notice that the 'Created' time only changes after every 5 seconds</p>
+
+

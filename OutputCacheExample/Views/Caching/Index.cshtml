@@ -1,9 +1,10 @@
 ﻿@model OutputCacheExample.Models.Person
 @{
     ViewBag.Title = "CachingView";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CachingView</h2>
+<h2>Caching View - Duration</h2>
 
-@Html.Partial("PersonPartial", Model);
+@Html.Partial("PersonPartial", Model)
+<p>Refresh the browser a number of times, you will notice that the 'Created' time only changes after every 10 seconds</p>
+

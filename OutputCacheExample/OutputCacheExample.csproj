@@ -178,6 +178,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Caching\Index.cshtml" />
     <Content Include="Views\Shared\PersonPartial.cshtml" />
+    <Content Include="Views\Caching\AggressiveCacheProfile.cshtml" />
+    <Content Include="Views\Caching\ShortCacheProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
