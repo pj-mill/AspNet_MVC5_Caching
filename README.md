@@ -19,7 +19,7 @@ Developed with Visual Studio 2015 Community
 
 ###Features
 
-The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used to control caching on controller actions.
+The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used to control caching on controller actions. 
 
 |Feature|
 |-------|
@@ -27,6 +27,18 @@ The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used
 |Specifying were data should be cached using 'System.Web.UI.OutputCacheLocation'|
 |Specifying cache profiles in web config.|
 |Project also demonstrates use of partial views and ajax calls|
+
+#### Testing
+
+Navigate to the following urls. The thing to watch out for is the 'Created' date. 
+
+|Url|Description|
+|---|-----------|
+|http://localhost:[YourPortNumber]/Caching| | Demonstrates caching data for a length of time using 'Duration'|
+|http://localhost:[YourPortNumber]/Caching/AggressiveCacheProfile| Demonstrates caching data for a length of time using 'CacheProfile'|
+|http://localhost:[YourPortNumber]/Caching/ShortCacheProfile| Demonstrates caching data for a length of time using 'CacheProfile'|
+|http://localhost:[YourPortNumber]/Caching/CacheByParm| Demonstrates caching data by parameter|
+|http://localhost:[YourPortNumber]/Caching/AjaxCaching| Demonstrates caching data requested from an ajax call|
 
 ---
 
