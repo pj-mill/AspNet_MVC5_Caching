@@ -20,7 +20,7 @@ namespace OutputCacheExample.Controllers
         public ViewResult LongCacheProfile()
         {
             // Uses a cache profile set in web config
-            Person person = new Person() { Name = "Aggressive Profile", Created = DateTime.Now };
+            Person person = new Person() { Name = "Long Profile", Created = DateTime.Now };
             return View(person);
         }
 
