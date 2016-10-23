@@ -1,0 +1,9 @@
+﻿@model OutputCacheExample.Models.Person
+@{
+    ViewBag.Title = "CachingView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CachingView</h2>
+
+@Html.Partial("PersonPartial", Model);
