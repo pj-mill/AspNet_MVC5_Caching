@@ -17,7 +17,7 @@ namespace OutputCacheExample.Controllers
         }
 
         [OutputCache(CacheProfile = "Aggressive")]
-        public ViewResult AggressiveCacheProfile()
+        public ViewResult LongCacheProfile()
         {
             // Uses a cache profile set in web config
             Person person = new Person() { Name = "Aggressive Profile", Created = DateTime.Now };
