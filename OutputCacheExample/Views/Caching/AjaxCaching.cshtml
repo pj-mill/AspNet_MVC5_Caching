@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "AjaxCaching";
+}
+
+<h2>AjaxCaching</h2>
+
+
+<input id="btnListPeople" type="submit" name="btnListPeople" value="Get People" class="btn btn-info"/>
+<br/>
+<br/>
+
+<p id="test"></p>
+<ul id="peopleList">
+
+</ul>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#btnListPeople').on('click', function (e) {
+                e.preventDefault();
+                $.ajax(
+                    {
+                        url: '/Caching/GetPeople',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            $('#peopleList').empty();
+
+                            $(data).each(function (index, person) {
+                                console.log(person);
+                                var date = new Date(parseInt(person.Created.substr(6)));
+                                $('#peopleList').append("<li>" + person.Name + " - " + date + "</li>")
+                            });
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+}

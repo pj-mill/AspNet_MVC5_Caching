@@ -181,6 +181,7 @@
     <Content Include="Views\Caching\AggressiveCacheProfile.cshtml" />
     <Content Include="Views\Caching\ShortCacheProfile.cshtml" />
     <Content Include="Views\Caching\CacheByParm.cshtml" />
+    <Content Include="Views\Caching\AjaxCaching.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
