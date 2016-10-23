@@ -1,6 +1,6 @@
 # AspNet_MVC5_Caching
 
-A look at Caching in an MVC5 project
+A look at Caching in an MVC5 project using ObjectCache & MemoryCache. Also demonstrates partial views and making ajax calls.
 
 ---
 
