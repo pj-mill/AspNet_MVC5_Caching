@@ -30,7 +30,7 @@ The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used
 
 #### Testing
 
-Navigate to the following urls. The thing to watch out for is the 'Created' date. 
+Navigate to the following urls and follow the instructions. The thing to watch out for is the 'Created' date. 
 
 |Url|Description|
 |---|-----------|
