@@ -13,6 +13,7 @@ Developed with Visual Studio 2015 Community
 |----|
 |C#|
 |MVC5|
+|AJAX|
 
 ---
 
