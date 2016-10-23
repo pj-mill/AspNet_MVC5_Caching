@@ -1,0 +1,9 @@
+﻿@model OutputCacheExample.Models.Person
+@{
+    ViewBag.Title = "Cache By Parm";
+}
+
+<h2>Cache By Parm</h2>
+
+@Html.Partial("PersonPartial", Model)
+<p>Refresh the browser a number of times and change the 'id' parameter, you will notice that the 'Created' time only changes after every 15 seconds</p>

@@ -28,5 +28,13 @@ namespace OutputCacheExample.Controllers
             Person person = new Person() { Name = "Short Profile", Created = DateTime.Now };
             return View(person);
         }
+
+        [OutputCache(Duration = 15, VaryByParam = "id")]
+        public ViewResult CacheByParm(int id)
+        {
+
+            Person person = new Person() { Name = $"Mary {id}", Created = DateTime.Now };
+            return View(person);
+        }
     }
 }
