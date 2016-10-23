@@ -7,8 +7,6 @@ namespace OutputCacheExample.Controllers
 {
     public class CachingController : Controller
     {
-        private int counter = 0;
-
         [OutputCache(Duration = 10)]
         public ViewResult Index()
         {
@@ -21,6 +19,7 @@ namespace OutputCacheExample.Controllers
         [OutputCache(CacheProfile = "Aggressive")]
         public ViewResult AggressiveCacheProfile()
         {
+            // Uses a cache profile set in web config
             Person person = new Person() { Name = "Aggressive Profile", Created = DateTime.Now };
             return View(person);
         }
@@ -28,6 +27,7 @@ namespace OutputCacheExample.Controllers
         [OutputCache(CacheProfile = "Short")]
         public ViewResult ShortCacheProfile()
         {
+            // Uses a cache profile set in web config
             Person person = new Person() { Name = "Short Profile", Created = DateTime.Now };
             return View(person);
         }
@@ -35,7 +35,7 @@ namespace OutputCacheExample.Controllers
         [OutputCache(Duration = 15, VaryByParam = "id")]
         public ViewResult CacheByParm(int id)
         {
-
+            // Caches data based on parameter & duration
             Person person = new Person() { Name = $"Mary {id}", Created = DateTime.Now };
             return View(person);
         }
@@ -45,9 +45,10 @@ namespace OutputCacheExample.Controllers
             return View();
         }
 
-        [OutputCache(Duration = 5)]
+        [OutputCache(Duration = 5, Location = System.Web.UI.OutputCacheLocation.Server)]
         public JsonResult GetPeople()
         {
+            // Used for an ajax call and specifies the location of the cached data
             List<Person> list = new List<Person>();
 
             Person person1 = new Person() { Name = $"Mary", Created = DateTime.Now };
