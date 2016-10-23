@@ -23,7 +23,7 @@ The OutputCacheExample project focuses on the 'OutputCache' attribute used to co
 |-------|
 |Caching data for a length of time using 'Duration'|
 |Specifying were data should be cached using 'System.Web.UI.OutputCacheLocation'|
-|Specifying cache profiles in web config.
+|Specifying cache profiles in web config.|
 |Project also demonstrates use of partial views and ajax calls|
 
 ---
