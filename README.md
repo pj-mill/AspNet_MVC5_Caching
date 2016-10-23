@@ -34,11 +34,11 @@ Navigate to the following urls. The thing to watch out for is the 'Created' date
 
 |Url|Description|
 |---|-----------|
-|http://localhost:[YourPortNumber]/Caching| | Demonstrates caching data for a length of time using 'Duration'|
-|http://localhost:[YourPortNumber]/Caching/AggressiveCacheProfile| Demonstrates caching data for a length of time using 'CacheProfile'|
-|http://localhost:[YourPortNumber]/Caching/ShortCacheProfile| Demonstrates caching data for a length of time using 'CacheProfile'|
-|http://localhost:[YourPortNumber]/Caching/CacheByParm| Demonstrates caching data by parameter|
-|http://localhost:[YourPortNumber]/Caching/AjaxCaching| Demonstrates caching data requested from an ajax call|
+|http://localhost:[YourPortNumber]/Caching | Demonstrates caching data for a length of time using 'Duration'|
+|http://localhost:[YourPortNumber]/Caching/AggressiveCacheProfile | Demonstrates caching data for a length of time using 'CacheProfile'|
+|http://localhost:[YourPortNumber]/Caching/ShortCacheProfile | Demonstrates caching data for a length of time using 'CacheProfile'|
+|http://localhost:[YourPortNumber]/Caching/CacheByParm | Demonstrates caching data by parameter|
+|http://localhost:[YourPortNumber]/Caching/AjaxCaching | Demonstrates caching data requested from an ajax call|
 
 ---
 
