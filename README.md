@@ -35,7 +35,7 @@ Navigate to the following urls and follow the instructions. The thing to watch o
 |Url|Description|
 |---|-----------|
 |http://localhost:[YourPortNumber]/Caching | Demonstrates caching data for a length of time using 'Duration'|
-|http://localhost:[YourPortNumber]/Caching/AggressiveCacheProfile | Demonstrates caching data for a length of time using 'CacheProfile'|
+|http://localhost:[YourPortNumber]/Caching/LongCacheProfile | Demonstrates caching data for a length of time using 'CacheProfile'|
 |http://localhost:[YourPortNumber]/Caching/ShortCacheProfile | Demonstrates caching data for a length of time using 'CacheProfile'|
 |http://localhost:[YourPortNumber]/Caching/CacheByParm | Demonstrates caching data by parameter|
 |http://localhost:[YourPortNumber]/Caching/AjaxCaching | Demonstrates caching data requested from an ajax call|
