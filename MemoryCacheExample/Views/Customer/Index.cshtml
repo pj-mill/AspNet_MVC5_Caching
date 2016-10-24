@@ -34,14 +34,10 @@
     </div>
 </div>
 
-
-
 @section scripts{ 
-
     <script type="text/javascript">
 
         var getCustomers = function () {
-            //alert($("#cityList").val());
 
             var city = $('#cityList').val();
 
@@ -52,7 +48,7 @@
                 dataType: 'json',
                 success: function (data) {
                     $('#customerTable > tbody').empty();                                // Clear table
-                    $("#headertitle").html("Caching Customers - " + city);             // Change header
+                    $("#headertitle").html("Caching Customers - " + city);              // Change header
                     $.each(data, function (idx, customer) {                        
                         var date = new Date(parseInt(customer.LastAccessed.substr(6))); // Format the date
                         $('#customerTable > tbody').append("<tr><td>" + customer.Name + "</td><td>" + customer.City + "</td><td>" + date + "</td></tr>");
@@ -60,7 +56,6 @@
                 }
             });
         }
-
 
         $(document).ready(function () {
 
