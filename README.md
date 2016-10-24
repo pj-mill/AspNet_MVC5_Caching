@@ -17,9 +17,11 @@ Developed with Visual Studio 2015 Community
 
 ---
 
-###Features
+### 'OutputCacheExample'
 
-The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used to control caching on controller actions. 
+This project focuses on the 'OutputCache' attribute used to control caching on controller actions. 
+
+#### FEATURES
 
 |Feature|
 |-------|
@@ -28,7 +30,7 @@ The **'OutputCacheExample'** project focuses on the 'OutputCache' attribute used
 |Specifying cache profiles in web config.|
 |Project also demonstrates use of partial views and ajax calls|
 
-#### Testing
+#### TESTING
 
 Navigate to the following urls and follow the instructions. The thing to watch out for is the 'Created' date. 
 
