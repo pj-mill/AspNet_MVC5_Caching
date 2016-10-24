@@ -65,7 +65,7 @@ Just run the 'MemoryCacheExample' project where you will be redirected to the 'C
 
 Filter the list of customers from the droplist provided.
 
-Observe the 'access date' for each filter, you will notice that it only changes after 1 minute.
+Observe the 'access date' for each customer, you will notice that it only changes after 1 minute.
 
 ---
 
