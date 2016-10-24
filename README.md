@@ -57,8 +57,8 @@ This projects contains a custom in-memory caching implementation using System.Ru
 |Caching using System.Runtime.MemoryCache [Here](https://github.com/Apollo013/AspNet_MVC5_Caching/blob/master/MemoryCacheExample/Cache/SystemMemoryCache.cs)|
 |Adapter, Decorator patterns [Here](https://github.com/Apollo013/AspNet_MVC5_Caching/blob/master/MemoryCacheExample/Services/InMemoryCachedCustomerService.cs)|
 |Light-weight Repository Pattern [Here](https://github.com/Apollo013/AspNet_MVC5_Caching/tree/master/MemoryCacheExample/Repository)|
-|Dependency Injection with StructureMap|
-|AJAX calls|
+|Dependency Injection with StructureMap [Here](https://github.com/Apollo013/AspNet_MVC5_Caching/blob/master/MemoryCacheExample/DependencyResolution/IoC.cs)|
+|AJAX calls [Here](https://github.com/Apollo013/AspNet_MVC5_Caching/blob/master/MemoryCacheExample/Views/Customer/Index.cshtml)|
 
 #### TESTING
 Just run the 'MemoryCacheExample' project where you will be redirected to the 'Customer' view.
