@@ -15,7 +15,6 @@ namespace MemoryCacheExample.Controllers
                 throw new ArgumentNullException("Customer Controller Service");
             }
             _service = service;
-            _service.Display(); // Just to make sure which serice is running
         }
 
         // GET: Customer

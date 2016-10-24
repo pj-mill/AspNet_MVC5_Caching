@@ -2,7 +2,6 @@
 using MemoryCacheExample.Repository;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace MemoryCacheExample.Services
 {
@@ -27,11 +26,6 @@ namespace MemoryCacheExample.Services
         public void Delete(int id)
         {
             _repo.Delete(id);
-        }
-
-        public void Display()
-        {
-            Debug.WriteLine("USING NORMAL SERVICE");
         }
 
         public IEnumerable<Customer> FindCustomersByCity(string city)

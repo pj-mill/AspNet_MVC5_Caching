@@ -2,7 +2,6 @@
 using MemoryCacheExample.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace MemoryCacheExample.Services
@@ -11,6 +10,9 @@ namespace MemoryCacheExample.Services
     {
         private readonly ICustomerService _service;
         private readonly ICache _cache;
+
+        private const string getAllCustomersKey = "GetAllCustomers";
+        private const string findCustomersByCityKey = "FindCustomersByCity";
 
         public InMemoryCachedCustomerService(ICustomerService service, ICache cache)
         {
@@ -22,15 +24,13 @@ namespace MemoryCacheExample.Services
 
         public void Add(Customer customer)
         {
+            _cache.Remove(getAllCustomersKey); // Force a lookup from repository
             _service.Add(customer);
-        }
-        public void Display()
-        {
-            Debug.WriteLine("USING IN MEMORY SERVICE");
         }
 
         public void Delete(int id)
         {
+            _cache.Remove(getAllCustomersKey); // Force a lookup from repository
             _service.Delete(id);
         }
 
@@ -44,7 +44,7 @@ namespace MemoryCacheExample.Services
             List<Customer> customers;
             try
             {
-                string storageKey = $"FindCustomersByCity:{city}";
+                string storageKey = $"{findCustomersByCityKey}:{city}";
                 customers = _cache.Retrieve<List<Customer>>(storageKey);
                 if (customers == null)
                 {
@@ -65,12 +65,11 @@ namespace MemoryCacheExample.Services
             List<Customer> customers;
             try
             {
-                string storageKey = "GetAllCustomers";
-                customers = _cache.Retrieve<List<Customer>>(storageKey);
+                customers = _cache.Retrieve<List<Customer>>(getAllCustomersKey);
                 if (customers == null)
                 {
                     customers = _service.GetAllCustomers().ToList();
-                    _cache.Store(storageKey, customers, DateTime.UtcNow.AddMinutes(1), TimeSpan.Zero);
+                    _cache.Store(getAllCustomersKey, customers, DateTime.UtcNow.AddMinutes(1), TimeSpan.Zero);
                 }
             }
             catch (Exception)
@@ -88,6 +87,7 @@ namespace MemoryCacheExample.Services
 
         public void Update(Customer customer)
         {
+            _cache.Remove(getAllCustomersKey); // Force a lookup from repository
             _service.Update(customer);
         }
     }

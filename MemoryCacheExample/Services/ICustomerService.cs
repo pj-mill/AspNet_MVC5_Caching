@@ -11,6 +11,5 @@ namespace MemoryCacheExample.Services
         void Update(Customer customer);
         void Delete(int id);
         IEnumerable<Customer> FindCustomersByCity(string city);
-        void Display();
     }
 }
