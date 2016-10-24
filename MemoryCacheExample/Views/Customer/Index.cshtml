@@ -1,0 +1,76 @@
+﻿@model List<MemoryCacheExample.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 id="headertitle">Caching Customers</h2>
+<br/>
+<p>Data for each city search will be cached for one minute, check last access dates when changing</p>
+<br />
+<br />
+
+<div class="container-fluid">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-lg-2">
+                <label class="control-label">Select City:</label>
+            </div>
+            <div class="col-lg-10">
+                @Html.DropDownList("Cities", null, new { @class = "form-control", id = "cityList" })
+            </div>
+        </div>
+    </form>
+    <div>
+        <table class="table" id="customerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Last Accessed</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+@section scripts{ 
+
+    <script type="text/javascript">
+
+        var getCustomers = function () {
+            //alert($("#cityList").val());
+
+            var city = $('#cityList').val();
+
+            $.ajax({
+                url: '/Customer/GetCustomersByCity',
+                type: 'GET',
+                data:{city:city},
+                dataType: 'json',
+                success: function (data) {
+                    $('#customerTable > tbody').empty();                                // Clear table
+                    $("#headertitle").html("Caching Customers - " + city);             // Change header
+                    $.each(data, function (idx, customer) {                        
+                        var date = new Date(parseInt(customer.LastAccessed.substr(6))); // Format the date
+                        $('#customerTable > tbody').append("<tr><td>" + customer.Name + "</td><td>" + customer.City + "</td><td>" + date + "</td></tr>");
+                    });
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+
+            $("#cityList").on("change", function (e) {
+                e.preventDefault();
+                getCustomers();
+            });
+
+            getCustomers();
+        });
+
+    </script>
+}

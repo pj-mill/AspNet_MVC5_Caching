@@ -39,7 +39,9 @@ namespace MemoryCacheExample.Repository
 
         public IEnumerable<Customer> Find(Predicate<Customer> predicate)
         {
-            return customers.FindAll(predicate);
+            var custs = customers.FindAll(predicate);
+            UpdateCustomerLastAccessDate(custs); // Demo purposes only
+            return custs;
         }
 
         public Customer FindById(int id)
@@ -49,6 +51,7 @@ namespace MemoryCacheExample.Repository
 
         public IEnumerable<Customer> GetAll()
         {
+            UpdateCustomerLastAccessDate(customers); // Demo purposes only
             return customers;
         }
 
@@ -71,6 +74,21 @@ namespace MemoryCacheExample.Repository
             customers.Add(Customer.Create("Martin", "Dublin"));
             customers.Add(Customer.Create("Jane", "Cork"));
             customers.Add(Customer.Create("Henry", "London"));
+        }
+
+        /// <summary>
+        /// Updates the last access date property.
+        /// <para>
+        /// This is only to demonstrate 
+        /// </para>
+        /// </summary>
+        /// <param name="customers"></param>
+        private void UpdateCustomerLastAccessDate(IEnumerable<Customer> customers)
+        {
+            foreach (var customer in customers)
+            {
+                customer.UpdateLastAccessDate();
+            }
         }
     }
 }

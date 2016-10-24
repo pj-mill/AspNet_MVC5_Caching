@@ -1,6 +1,4 @@
-﻿using MemoryCacheExample.DependencyResolution;
-using StructureMap;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -15,7 +13,7 @@ namespace MemoryCacheExample
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            IContainer container = IoC.Initialize();
+            //IContainer container = IoC.Initialize();
         }
     }
 }

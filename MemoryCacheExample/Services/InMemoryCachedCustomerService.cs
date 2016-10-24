@@ -2,6 +2,8 @@
 using MemoryCacheExample.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace MemoryCacheExample.Services
 {
@@ -17,9 +19,14 @@ namespace MemoryCacheExample.Services
             _service = service;
             _cache = cache;
         }
+
         public void Add(Customer customer)
         {
             _service.Add(customer);
+        }
+        public void Display()
+        {
+            Debug.WriteLine("USING IN MEMORY SERVICE");
         }
 
         public void Delete(int id)
@@ -29,12 +36,49 @@ namespace MemoryCacheExample.Services
 
         public IEnumerable<Customer> FindCustomersByCity(string city)
         {
-            return _service.FindCustomersByCity(city);
+            if (String.IsNullOrWhiteSpace(city))
+            {
+                return GetAllCustomers();
+            }
+
+            List<Customer> customers;
+            try
+            {
+                string storageKey = $"FindCustomersByCity:{city}";
+                customers = _cache.Retrieve<List<Customer>>(storageKey);
+                if (customers == null)
+                {
+                    customers = _service.FindCustomersByCity(city).ToList();
+                    _cache.Store(storageKey, customers, DateTime.UtcNow.AddMinutes(1), TimeSpan.Zero);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return customers;
         }
 
         public IEnumerable<Customer> GetAllCustomers()
         {
-            return _service.GetAllCustomers();
+            List<Customer> customers;
+            try
+            {
+                string storageKey = "GetAllCustomers";
+                customers = _cache.Retrieve<List<Customer>>(storageKey);
+                if (customers == null)
+                {
+                    customers = _service.GetAllCustomers().ToList();
+                    _cache.Store(storageKey, customers, DateTime.UtcNow.AddMinutes(1), TimeSpan.Zero);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return customers;
         }
 
         public Customer GetCustomer(int id)

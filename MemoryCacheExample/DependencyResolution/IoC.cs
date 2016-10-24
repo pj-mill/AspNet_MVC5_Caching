@@ -19,6 +19,7 @@
 namespace MemoryCacheExample.DependencyResolution
 {
     using Cache;
+    using Services;
     using StructureMap;
     using StructureMap.Graph;
 
@@ -35,6 +36,8 @@ namespace MemoryCacheExample.DependencyResolution
                     });
 
                     config.For<ICache>().Use<SystemMemoryCache>();
+                    var customerService = config.For<ICustomerService>().Use<CustomerService>();
+                    config.For<ICustomerService>().Use<InMemoryCachedCustomerService>().Ctor<ICustomerService>().Is(customerService);
                 }
             );
         }
